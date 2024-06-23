@@ -57,7 +57,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+	include(modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}")
 
 	include(implementation("com.electronwill.night-config:core:${project.night_config_version}"))
 	include(implementation("com.electronwill.night-config:toml:${project.night_config_version}"))
