@@ -18,7 +18,7 @@ open class IdentifierSetting @JvmOverloads constructor(
         get() = { identifier -> StringType(identifier.toString()) }
 
     override val serializedToValueConverter: (StringType) -> Identifier
-        get() = { stringType -> Identifier(stringType.rawValue) }
+        get() = { stringType -> Identifier.of(stringType.rawValue) }
 
     override val argumentType: IdentifierArgumentType
         get() = IdentifierArgumentType.identifier()
