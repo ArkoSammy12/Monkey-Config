@@ -4,7 +4,6 @@ import xd.arkosammy.monkeyconfig.settings.*
 import xd.arkosammy.monkeyconfig.groups.SettingGroup
 import xd.arkosammy.monkeyconfig.util.SettingLocation
 import xd.arkosammy.monkeyconfig.groups.MutableSettingGroup
-import xd.arkosammy.monkeyconfig.settings.list.StringListSetting
 
 /**
  * A manager of [SettingGroup]s and is in charge
@@ -76,19 +75,3 @@ interface ConfigManager {
         this.settingGroups.any { settingGroup ->  settingGroup.name == settingGroupName}
 
 }
-
-inline fun <V, reified T : ConfigSetting<V, *>> ConfigManager.getTypedSetting(settingLocation: SettingLocation) : T? {
-    return this.getTypedSetting(settingLocation, T::class.java)
-}
-
-fun ConfigManager.getAsIntSetting(settingLocation: SettingLocation) : NumberSetting<Int>? = this.getTypedSetting<Int, NumberSetting<Int>>(settingLocation)
-
-fun ConfigManager.getAsDoubleSetting(settingLocation: SettingLocation) : NumberSetting<Double>? = this.getTypedSetting<Double, NumberSetting<Double>>(settingLocation)
-
-fun ConfigManager.getAsBooleanSetting(settingLocation: SettingLocation) : BooleanSetting? = this.getTypedSetting<Boolean, BooleanSetting>(settingLocation)
-
-fun ConfigManager.getAsStringSetting(settingLocation: SettingLocation) : StringSetting? = this.getTypedSetting<String, StringSetting>(settingLocation)
-
-fun ConfigManager.getAsStringListSetting(settingLocation: SettingLocation) : StringListSetting? = this.getTypedSetting<List<String>, StringListSetting>(settingLocation)
-
-fun <E : Enum<E>> ConfigManager.getAsEnumSetting(settingLocation: SettingLocation) : EnumSetting<E>? = this.getTypedSetting<E, EnumSetting<E>>(settingLocation)
