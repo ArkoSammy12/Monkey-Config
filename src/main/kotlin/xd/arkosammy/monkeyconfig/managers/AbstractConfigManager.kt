@@ -82,7 +82,7 @@ abstract class AbstractConfigManager : ConfigManager {
             //.onAutoReload { this.onAutoReload }
 
         val groupSettingsByGroupName: Map<String, List<ConfigSetting<*, *>>> = settingBuilders.map { settingBuilder -> settingBuilder.build() }.groupBy { setting: ConfigSetting<*, *> -> setting.settingLocation.groupName }
-        val newGroups: MutableList<MutableSettingGroup> = settingGroups?.toMutableList() ?: mutableListOf<MutableSettingGroup>()
+        val newGroups: MutableList<MutableSettingGroup> = settingGroups?.toMutableList() ?: mutableListOf()
 
         // Create new SettingGroups for ConfigSetting lists wihtout a corresponding SettingGroup in the newGroups list
         for ((groupName, settingList) in groupSettingsByGroupName) {
