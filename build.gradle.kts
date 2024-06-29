@@ -25,6 +25,7 @@ repositories {
 		// Patbox's SGui
 		maven("https://maven.nucleoid.xyz")
 	}
+
 }
 
 sourceSets {
