@@ -38,13 +38,7 @@ abstract class AbstractConfigManager : ConfigManager {
      * This mostly determines whether this configuration file supports comments.
      * @param [configPath] The [Path] of the configuration file used by this [ConfigManager].
      */
-    constructor(
-        configName: String,
-        settingGroups:
-        List<SettingGroup>,
-        configFormat: ConfigFormat<*>,
-        configPath: Path
-    ) {
+    constructor(configName: String, settingGroups: List<SettingGroup>, configFormat: ConfigFormat<*>, configPath: Path) {
         this.configName = configName
         this.configFilePath = configPath
         this.configBuilder = FileConfig.builder(this.configFilePath, configFormat)
@@ -76,13 +70,7 @@ abstract class AbstractConfigManager : ConfigManager {
      * This mostly determines whether this configuration file supports comments.
      * @param [configPath] The [Path] of the configuration file used by this [ConfigManager].
      */
-    constructor(
-        configName: String,
-        settingGroups: List<MutableSettingGroup>? = null,
-        settingBuilders: List<ConfigSetting.Builder<*, *, *>>,
-        configFormat: ConfigFormat<*>,
-        configPath: Path
-    ) {
+    constructor(configName: String, settingGroups: List<MutableSettingGroup>? = null, settingBuilders: List<ConfigSetting.Builder<*, *, *>>, configFormat: ConfigFormat<*>, configPath: Path) {
         this.configName = configName
         this.configFilePath = configPath
         this.configBuilder = FileConfig.builder(this.configFilePath, configFormat)

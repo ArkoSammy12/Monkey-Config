@@ -19,14 +19,9 @@ abstract class ListSetting<E, S : SerializableType<*>> @JvmOverloads constructor
     settingLocation: SettingLocation,
     comment: String? = null,
     defaultValue: List<E>,
-    value: List<E> = defaultValue
-) : ConfigSetting<List<E>, ListType<S>>(settingLocation, comment, value) {
+    value: List<E> = defaultValue) : ConfigSetting<List<E>, ListType<S>>(settingLocation, comment, value) {
 
-    abstract class Builder<E, S : SerializableType<*>> @JvmOverloads constructor(
-        settingLocation: SettingLocation,
-        comment: String? = null,
-        defaultValue: List<E>
-    ) : ConfigSetting.Builder<ListSetting<E, S>, List<E>, ListType<S>>(settingLocation, comment, defaultValue) {
+    abstract class Builder<E, S : SerializableType<*>> @JvmOverloads constructor(settingLocation: SettingLocation, comment: String? = null, defaultValue: List<E>) : ConfigSetting.Builder<ListSetting<E, S>, List<E>, ListType<S>>(settingLocation, comment, defaultValue) {
 
         abstract override fun build(): ListSetting<E, S>
 

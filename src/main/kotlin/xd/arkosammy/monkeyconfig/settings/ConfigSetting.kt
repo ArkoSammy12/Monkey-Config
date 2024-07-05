@@ -18,8 +18,7 @@ abstract class ConfigSetting<T, S : SerializableType<*>> @JvmOverloads construct
     open val settingLocation: SettingLocation,
     open val comment: String? = null,
     open val defaultValue: T,
-    open var value: T = defaultValue
-) {
+    open var value: T = defaultValue) {
 
     /**
      * The value of this [ConfigSetting] converted to a type that can be written to and read from a config file.
@@ -74,11 +73,7 @@ abstract class ConfigSetting<T, S : SerializableType<*>> @JvmOverloads construct
      * @param [V] The type of the value which will be used in the resulting [ConfigSetting] instance.
      * @param [S] The [SerializableType] type which will be used in the resulting [ConfigSetting].
      */
-    abstract class Builder<T : ConfigSetting<V, S>, V : Any, S : SerializableType<*>> @JvmOverloads constructor(
-        val settingLocation: SettingLocation,
-        protected var comment: String? = null,
-        val defaultValue: V
-    ) {
+    abstract class Builder<T : ConfigSetting<V, S>, V : Any, S : SerializableType<*>> @JvmOverloads constructor(val settingLocation: SettingLocation, protected var comment: String? = null, val defaultValue: V) {
 
         val groupName: String
             get() = settingLocation.groupName
