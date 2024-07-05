@@ -7,7 +7,8 @@ open class EnumSetting<E : Enum<E>> @JvmOverloads constructor(
     settingLocation: SettingLocation,
     comment: String? = null,
     defaultValue: E,
-    value: E = defaultValue) : ConfigSetting<E, EnumType<E>>(settingLocation, comment, value) {
+    value: E = defaultValue
+) : ConfigSetting<E, EnumType<E>>(settingLocation, comment, value) {
 
     val enumClass: Class<E> = defaultValue.declaringJavaClass
 
@@ -17,9 +18,14 @@ open class EnumSetting<E : Enum<E>> @JvmOverloads constructor(
     override val serializedToValueConverter: (EnumType<E>) -> E
         get() = { enumType -> enumType.rawValue }
 
-    open class Builder<E : Enum<E>> @JvmOverloads constructor(settingLocation: SettingLocation, comment: String? = null, defaultValue: E) : ConfigSetting.Builder< EnumSetting<E>, E, EnumType<E>>(settingLocation, comment, defaultValue) {
+    open class Builder<E : Enum<E>> @JvmOverloads constructor(
+        settingLocation: SettingLocation,
+        comment: String? = null,
+        defaultValue: E
+    ) : ConfigSetting.Builder< EnumSetting<E>, E, EnumType<E>>(settingLocation, comment, defaultValue) {
 
-        override fun build(): EnumSetting<E> = EnumSetting(this.settingLocation, this.comment, this.defaultValue)
+        override fun build(): EnumSetting<E> =
+            EnumSetting(this.settingLocation, this.comment, this.defaultValue)
 
     }
 

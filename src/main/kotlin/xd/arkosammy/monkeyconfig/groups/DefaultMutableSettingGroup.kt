@@ -8,7 +8,8 @@ open class DefaultMutableSettingGroup @JvmOverloads constructor(
     comment: String? = null,
     override val configSettings: MutableList<ConfigSetting<*, *>> = mutableListOf(),
     loadBeforeSave: Boolean = false,
-    registerSettingsAsCommands: Boolean = true) : DefaultSettingGroup(name, comment, configSettings, loadBeforeSave, registerSettingsAsCommands), MutableSettingGroup {
+    registerSettingsAsCommands: Boolean = true
+) : DefaultSettingGroup(name, comment, configSettings, loadBeforeSave, registerSettingsAsCommands), MutableSettingGroup {
 
     override fun <T, S : SerializableType<*>> addConfigSetting(setting: ConfigSetting<T, S>) {
         this.configSettings.add(setting)

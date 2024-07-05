@@ -10,7 +10,8 @@ open class StringMapSettingGroup @JvmOverloads constructor(
     name: String,
     comment: String? = null,
     defaultEntries: Map<String, String>,
-    mapEntries: Map<String, String> = defaultEntries) : AbstractMapSettingGroup<String, StringType>(name, comment, defaultEntries, mapEntries) {
+    mapEntries: Map<String, String> = defaultEntries
+) : AbstractMapSettingGroup<String, StringType>(name, comment, defaultEntries, mapEntries) {
 
     constructor(name: String, comment: String?, defaultEntries: List<ConfigSetting<String, StringType>>, entries: List<ConfigSetting<String, StringType>> = defaultEntries) : this(name, comment,
         defaultEntries.associate { setting ->

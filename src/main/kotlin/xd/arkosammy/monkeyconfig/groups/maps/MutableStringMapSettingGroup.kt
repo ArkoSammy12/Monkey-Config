@@ -9,7 +9,8 @@ open class MutableStringMapSettingGroup @JvmOverloads constructor(
     name: String,
     comment: String? = null,
     defaultEntries: Map<String, String> = mutableMapOf(),
-    mapEntries: Map<String, String> = defaultEntries) : StringMapSettingGroup(name, comment, defaultEntries, mapEntries), MutableMapSettingGroup<String, StringType> {
+    mapEntries: Map<String, String> = defaultEntries
+) : StringMapSettingGroup(name, comment, defaultEntries, mapEntries), MutableMapSettingGroup<String, StringType> {
 
     constructor(name: String, comment: String?, defaultEntries: List<ConfigSetting<String, StringType>>, entries: List<ConfigSetting<String, StringType>> = defaultEntries) : this(name, comment,
         defaultEntries.associate { setting ->
