@@ -16,7 +16,8 @@ open class NumberSetting<T : Number> @JvmOverloads constructor(
     defaultValue: T,
     value: T = defaultValue,
     private val lowerBound: T? = null,
-    private val upperBound: T? = null) : AbstractCommandControllableSetting<T, NumberType<T>, ArgumentType<T>>(settingLocation, comment, defaultValue, value) {
+    private val upperBound: T? = null
+) : AbstractCommandControllableSetting<T, NumberType<T>, ArgumentType<T>>(settingLocation, comment, defaultValue, value) {
 
     override var value: T
         get() = super.value
@@ -134,7 +135,11 @@ open class NumberSetting<T : Number> @JvmOverloads constructor(
     override fun toString(): String =
         "${this::class.simpleName}{numType=${this.value::class.simpleName}, location=${this.settingLocation}, comment=${this.comment ?: "null"}, defaultValue=${this.defaultValue}}, value=${this.value}, serializedType=${this.serializedDefaultValue::class.simpleName}, lowerBound=${this.lowerBound ?: "null"}, upperBound=${this.upperBound ?: "null"}}"
 
-    open class Builder<T : Number> @JvmOverloads constructor(settingLocation: SettingLocation, comment: String? = null, defaultValue: T) : ConfigSetting.Builder<NumberSetting<T>, T, NumberType<T>>(settingLocation, comment, defaultValue) {
+    open class Builder<T : Number> @JvmOverloads constructor(
+        settingLocation: SettingLocation,
+        comment: String? = null,
+        defaultValue: T
+    ) : ConfigSetting.Builder<NumberSetting<T>, T, NumberType<T>>(settingLocation, comment, defaultValue) {
 
         protected var lowerBound: T? = null
         protected var upperBound: T? = null
@@ -149,7 +154,8 @@ open class NumberSetting<T : Number> @JvmOverloads constructor(
             return this
         }
 
-        override fun build(): NumberSetting<T> = NumberSetting(settingLocation, this.comment, defaultValue, defaultValue, lowerBound, upperBound)
+        override fun build(): NumberSetting<T> =
+            NumberSetting(settingLocation, this.comment, defaultValue, defaultValue, lowerBound, upperBound)
 
     }
 

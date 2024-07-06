@@ -10,11 +10,13 @@ open class TomlConfigManager : AbstractConfigManager {
 
     constructor(
         configName: String,
-        settingGroups: List<SettingGroup>) : super(configName, settingGroups, TomlFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.toml"))
+        settingGroups: List<SettingGroup>
+    ) : super(configName, settingGroups, TomlFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.toml"))
 
     constructor(
         configName: String,
         settingGroups: List<MutableSettingGroup>? = null,
-        settingBuilders: List<ConfigSetting.Builder<*, *, *>>) : super(configName, settingGroups, settingBuilders, TomlFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.toml"))
+        settingBuilders: List<ConfigSetting.Builder<*, *, *>>
+    ) : super(configName, settingGroups, settingBuilders, TomlFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.toml"))
 
 }

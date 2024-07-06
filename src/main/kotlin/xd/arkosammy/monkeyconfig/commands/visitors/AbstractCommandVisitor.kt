@@ -32,7 +32,8 @@ abstract class AbstractCommandVisitor @JvmOverloads constructor(
     rootNodeName: String = configManager.configName,
     protected val commandDispatcher: CommandDispatcher<ServerCommandSource>,
     protected val commandRegistryAccess: CommandRegistryAccess? = null,
-    protected val registrationEnvironment: CommandManager.RegistrationEnvironment? = null) : CommandVisitor {
+    protected val registrationEnvironment: CommandManager.RegistrationEnvironment? = null
+) : CommandVisitor {
 
     final override val configNode: LiteralCommandNode<ServerCommandSource> = CommandManager
         .literal("config")

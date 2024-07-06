@@ -10,7 +10,8 @@ open class StringSetting @JvmOverloads constructor(
     settingLocation: SettingLocation,
     comment: String? = null,
     defaultValue: String,
-    value: String = defaultValue) : AbstractCommandControllableSetting<String, StringType, StringArgumentType>(settingLocation, comment, value) {
+    value: String = defaultValue
+) : AbstractCommandControllableSetting<String, StringType, StringArgumentType>(settingLocation, comment, value) {
 
     override val valueToSerializedConverter: (String) -> StringType
         get() = { string -> StringType(string) }
@@ -24,9 +25,14 @@ open class StringSetting @JvmOverloads constructor(
     override val argumentType: StringArgumentType
         get() = StringArgumentType.string()
 
-    open class Builder @JvmOverloads constructor(id: SettingLocation, comment: String? = null, defaultValue: String) : ConfigSetting.Builder<StringSetting, String, StringType>(id, comment, defaultValue) {
+    open class Builder @JvmOverloads constructor(
+        id: SettingLocation,
+        comment: String? = null,
+        defaultValue: String
+    ) : ConfigSetting.Builder<StringSetting, String, StringType>(id, comment, defaultValue) {
 
-        override fun build(): StringSetting = StringSetting(this.settingLocation, this.comment, this.defaultValue)
+        override fun build(): StringSetting =
+            StringSetting(this.settingLocation, this.comment, this.defaultValue)
 
     }
 

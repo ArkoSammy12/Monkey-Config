@@ -21,7 +21,8 @@ class DefaultCommandVisitor @JvmOverloads constructor(
     rootNodeName: String = configManager.configName,
     commandDispatcher: CommandDispatcher<ServerCommandSource>,
     commandRegistryAccess: CommandRegistryAccess? = null,
-    registrationEnvironment: CommandManager.RegistrationEnvironment? = null) : AbstractCommandVisitor(configManager, rootNodeName, commandDispatcher, commandRegistryAccess, registrationEnvironment) {
+    registrationEnvironment: CommandManager.RegistrationEnvironment? = null
+) : AbstractCommandVisitor(configManager, rootNodeName, commandDispatcher, commandRegistryAccess, registrationEnvironment) {
 
     private val configCategories: List<String> = this.configManager.settingGroups.map { table ->  table.name }.toList()
     private val cachedCategoryNodes: MutableList<LiteralCommandNode<ServerCommandSource>> = mutableListOf()

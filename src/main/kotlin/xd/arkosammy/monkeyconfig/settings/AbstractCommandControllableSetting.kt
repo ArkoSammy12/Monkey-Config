@@ -9,7 +9,8 @@ abstract class AbstractCommandControllableSetting<T : Any, S : SerializableType<
     settingLocation: SettingLocation,
     comment: String? = null,
     defaultValue: T,
-    value: T = defaultValue) : ConfigSetting<T, S>(settingLocation, comment, defaultValue, value), CommandControllableSetting<T, A> {
+    value: T = defaultValue
+) : ConfigSetting<T, S>(settingLocation, comment, defaultValue, value), CommandControllableSetting<T, A> {
 
     override val commandIdentifier: SettingLocation
         get() =  this.settingLocation

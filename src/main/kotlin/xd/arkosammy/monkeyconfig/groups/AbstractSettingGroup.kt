@@ -7,7 +7,8 @@ abstract class AbstractSettingGroup @JvmOverloads constructor(
     override val name: String,
     override val comment: String? = null,
     override val loadBeforeSave: Boolean = false,
-    override val registerSettingsAsCommands: Boolean) : SettingGroup {
+    override val registerSettingsAsCommands: Boolean
+) : SettingGroup {
 
     protected var _isRegistered: Boolean = false
 

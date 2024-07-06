@@ -10,11 +10,13 @@ open class HoconConfigManager : AbstractConfigManager {
 
     constructor(
         configName: String,
-        settingGroups: List<SettingGroup>) : super(configName, settingGroups, HoconFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.conf"))
+        settingGroups: List<SettingGroup>
+    ) : super(configName, settingGroups, HoconFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.conf"))
 
     constructor(
         configName: String,
         settingGroups: List<MutableSettingGroup>? = null,
-        settingBuilders: List<ConfigSetting.Builder<*, *, *>>) : super(configName, settingGroups, settingBuilders, HoconFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.conf"))
+        settingBuilders: List<ConfigSetting.Builder<*, *, *>>
+    ) : super(configName, settingGroups, settingBuilders, HoconFormat.instance(), FabricLoader.getInstance().configDir.resolve("$configName.conf"))
 
 }

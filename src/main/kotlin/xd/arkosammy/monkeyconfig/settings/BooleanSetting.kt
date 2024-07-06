@@ -10,7 +10,8 @@ open class BooleanSetting @JvmOverloads constructor(
     settingLocation: SettingLocation,
     comment: String? = null,
     defaultValue: Boolean,
-    value: Boolean = defaultValue) : AbstractCommandControllableSetting<Boolean, BooleanType, BoolArgumentType>(settingLocation, comment, defaultValue, value) {
+    value: Boolean = defaultValue
+) : AbstractCommandControllableSetting<Boolean, BooleanType, BoolArgumentType>(settingLocation, comment, defaultValue, value) {
 
     override val valueToSerializedConverter: (Boolean) -> BooleanType
         get() = { boolean -> BooleanType(boolean) }
@@ -25,9 +26,14 @@ open class BooleanSetting @JvmOverloads constructor(
         BoolArgumentType.getBool(ctx, argumentName)
 
 
-    open class Builder @JvmOverloads constructor(settingLocation: SettingLocation, comment: String? = null, defaultValue: Boolean) : ConfigSetting.Builder<BooleanSetting, Boolean, BooleanType>(settingLocation, comment, defaultValue) {
+    open class Builder @JvmOverloads constructor(
+        settingLocation: SettingLocation,
+        comment: String? = null,
+        defaultValue: Boolean
+    ) : ConfigSetting.Builder<BooleanSetting, Boolean, BooleanType>(settingLocation, comment, defaultValue) {
 
-        override fun build(): BooleanSetting = BooleanSetting(this.settingLocation, this.comment, this.defaultValue)
+        override fun build(): BooleanSetting =
+            BooleanSetting(this.settingLocation, this.comment, this.defaultValue)
 
     }
 }

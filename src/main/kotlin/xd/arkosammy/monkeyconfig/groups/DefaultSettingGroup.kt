@@ -7,4 +7,5 @@ open class DefaultSettingGroup @JvmOverloads constructor(
     comment: String? = null,
     override val configSettings: List<ConfigSetting<*, *>>,
     loadBeforeSave: Boolean = false,
-    registerSettingsAsCommands: Boolean = true) : AbstractSettingGroup(name, comment, loadBeforeSave, registerSettingsAsCommands)
+    registerSettingsAsCommands: Boolean = true
+) : AbstractSettingGroup(name, comment, loadBeforeSave, registerSettingsAsCommands)

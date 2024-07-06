@@ -18,9 +18,14 @@ abstract class AbstractMapSettingGroup<V : Any, S : SerializableType<*>> @JvmOve
     final override val name: String,
     override val comment: String? = null,
     defaultEntries: Map<String, V>,
-    mapEntries: Map<String, V> = defaultEntries) : MapSettingGroup<V, S> {
+    mapEntries: Map<String, V> = defaultEntries
+) : MapSettingGroup<V, S> {
 
-    constructor(name: String, comment: String?, defaultEntries: List<ConfigSetting<V, S>>, entries: List<ConfigSetting<V, S>> = defaultEntries) : this(name, comment,
+    constructor(name: String,
+                comment: String?,
+                defaultEntries: List<ConfigSetting<V, S>>,
+                entries: List<ConfigSetting<V, S>> = defaultEntries
+    ) : this(name, comment,
         defaultEntries.associate { setting ->
             Pair(setting.settingLocation.settingName, setting.value)
         }, entries.associate { setting ->
