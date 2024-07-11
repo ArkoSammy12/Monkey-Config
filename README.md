@@ -19,3 +19,6 @@ If you would like to report a bug, or make a suggestion, you can do so via the m
 
 Clone this repository on your PC, then open your command line prompt on the main directory of the mod, and run the command: `gradlew build`. Once the build is successful, you can find the mod under `/monkey-config/build/libs`. Use the .jar file without the `"sources"`.
 
+# Credits
+
+- Thanks to [dicedpixels](https://github.com/dicedpixels) for the mod icon.
