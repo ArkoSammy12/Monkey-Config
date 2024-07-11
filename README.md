@@ -21,4 +21,4 @@ Clone this repository on your PC, then open your command line prompt on the main
 
 # Credits
 
-- Thanks to [dicedpixels](https://github.com/dicedpixels) for the mod icon.
+- Thanks to [dicedpixels](https://github.com/dicedpixels) for the mod's icon.
