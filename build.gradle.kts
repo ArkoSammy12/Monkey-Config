@@ -75,6 +75,9 @@ dependencies {
 	include(implementation("com.electronwill.night-config:hocon:${property("night_config_version")}")!!)
     include(modImplementation("eu.pb4:sgui:${property("sgui_version")}")!!)
 
+	// Fabric Permissions API
+	//include(modImplementation("me.lucko:fabric-permissions-api:${property("fabric_permissions_api_version")}")!!)
+
 	"testmodImplementation"(sourceSets.main.get().output)
 	"testmodImplementation"("org.junit.jupiter:junit-jupiter-api:5.8.2")
 	"testmodRuntimeOnly"("org.junit.jupiter:junit-jupiter-engine:5.8.2")

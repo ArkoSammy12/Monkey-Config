@@ -4,6 +4,7 @@ import com.mojang.brigadier.Command
 import com.mojang.brigadier.CommandDispatcher
 import com.mojang.brigadier.arguments.ArgumentType
 import com.mojang.brigadier.context.CommandContext
+import com.mojang.brigadier.tree.CommandNode
 import com.mojang.brigadier.tree.LiteralCommandNode
 import net.minecraft.command.CommandRegistryAccess
 import net.minecraft.server.command.CommandManager
@@ -52,18 +53,20 @@ abstract class AbstractCommandVisitor @JvmOverloads constructor(
 
     init {
 
-        val rootNode: LiteralCommandNode<ServerCommandSource> = CommandManager
-            .literal(rootNodeName)
-            .requires { source -> source.hasPermissionLevel(4) }
-            .build()
-
         val reloadNode: LiteralCommandNode<ServerCommandSource> = CommandManager
             .literal("reload")
             .requires { source -> source.hasPermissionLevel(4) }
             .executes { ctx -> onConfigReloadedCallback(ctx, configManager) }
             .build()
 
-        commandDispatcher.root.addChild(rootNode)
+        // Check if the root node already exists, and use it. Otherwise, create it and add it to the dispatcher root
+        val rootNode: CommandNode<ServerCommandSource> = commandDispatcher.root.getChild(rootNodeName) ?: run {
+            val node: LiteralCommandNode<ServerCommandSource> = CommandManager
+                .literal(rootNodeName)
+                .build()
+            commandDispatcher.root.addChild(node)
+            node
+        }
         rootNode.addChild(configNode)
         configNode.addChild(reloadNode)
     }
